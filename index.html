@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="vert"></div>
+        
+        <h1>Comedy animal photography competition</h1>
+        <h2>Photos of the finalists of the comedy animal photography competition</h2>
+
+        <div class="gallery-wr">
+            <div class="left-arrow">
+                <img src="img/arrow-left.png" alt="">
+            </div>
+            
+            <ul class="list">
+            <li class="image-wr active show">
+                <div class="first-section">
+                    <img src="img/img-1.jpeg" alt="">
+                    <div class="hor"></div>
+                    
+                </div>
+                <div class="second-section">
+                    <div class="top">
+                        <img src="img/img-2.jpeg" alt="">
+                        <img src="img/img-3.jpeg" alt="">
+                    </div>
+                    <div class="bottom">
+                        <img src="img/img-4.jpeg" alt="">
+                        <img src="img/img-5.jpeg" alt="">
+                    </div>
+                </div>
+            </li>
+
+        
+            <li class="image-wr" >
+                <div class="first-section">
+                    <img src="img/img-6.jpeg" alt="">
+                    <div class="hor"></div>
+                    
+                </div>
+                <div class="second-section">
+                    <div class="top">
+                        <img src="img/img-7.jpeg" alt="">
+                        <img src="img/img-8.jpeg" alt="">
+                    </div>
+                    <div class="bottom">
+                        <img src="img/img-9.jpeg" alt="">
+                        <img src="img/img-10.jpeg" alt="">
+                    </div>
+                </div>
+            </li>
+
+
+            <li class="image-wr">
+                <div class="first-section">
+                    <img src="img/img-11.jpeg" alt="">
+                    <div class="hor"></div>
+                    
+                </div>
+                <div class="second-section">
+                    <div class="top">
+                        <img src="img/img-12.jpeg" alt="">
+                        <img src="img/img-13.jpeg" alt="">
+                    </div>
+                    <div class="bottom">
+                        <img src="img/img-14.jpeg" alt="">
+                        <img src="img/img-15.jpeg" alt="">
+                    </div>
+                </div>
+            </li>
+
+            <li class="image-wr">
+                <div class="first-section">
+                    <img src="img/img-16.jpeg" alt="">
+                    <div class="hor"></div>
+                    
+                </div>
+                <div class="second-section">
+                    <div class="top">
+                        <img src="img/img-17.jpeg" alt="">
+                        <img src="img/img-18.jpeg" alt="">
+                    </div>
+                    <div class="bottom">
+                        <img src="img/img-19.jpeg" alt="">
+                        <img src="img/img-20.jpeg" alt="">
+                    </div>
+                </div>
+            </li>
+       
+       
+        </ul>
+            
+
+            
+            <div class="right-arrow">
+                <img src="img/arrow-right.png" alt="">
+            </div>
+        </div>
+
+      <div class="footer">
+        <div class="active-button"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+        
+        
+    </div>
+    
+    <script>
+        class Slider{
+            constructor(){
+                this.leftArrow = document.querySelector(".left-arrow img");
+                this.rightArrow = document.querySelector(".right-arrow img");
+                this.list = document.querySelectorAll(".list li");
+                this.buttons = document.querySelectorAll(".footer div");
+                console.log(this.list);
+                this.active = 0;
+                
+                this.rightArrow.addEventListener("click", () => {
+                    if(this.active === this.list.length-1){
+                        this.active = 0;
+                    } else {
+                        this.active++;
+                    }
+                    this.list.forEach((element) => {
+                        element.classList.remove("show");
+                        element.classList.remove("active");
+                    })
+                    this.list[this.active].classList.add("active");
+                    setTimeout(() => {
+                        this.list[this.active].classList.add("show");
+                    }, 50);
+                    
+                    this.buttons.forEach((element) => {
+                        element.classList.remove("active-button");
+                    })
+                    this.buttons[this.active].classList.add("active-button");
+
+                    
+                }) 
+                this.leftArrow.addEventListener("click", () => {
+                    if(this.active === 0){
+                        this.active = this.list.length-1;
+                    } else {
+                        this.active--;
+                    }
+                    this.list.forEach((element) => {
+                        element.classList.remove("show");
+                        element.classList.remove("active");
+                    })
+                    this.list[this.active].classList.add("active");
+                    setTimeout(() => {
+                        this.list[this.active].classList.add("show");
+                    }, 50);
+
+                    this.buttons.forEach((element) => {
+                        element.classList.remove("active-button");
+                    })
+                    this.buttons[this.active].classList.add("active-button");
+                }) 
+
+            }
+
+            
+        }
+
+
+        let slider = new Slider();
+
+    </script>
+</body>
+</html>
